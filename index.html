@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC">
+<style>
+  body {
+    font-family: "Noto Sans SC";
+    font-weight: 600;
+    font-size: 18px;
+  }
+  #content {
+    text-align: center;
+  }
+  #title {
+    font-size: 32px;
+  }
+  #date {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+  #noMatches {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 30px;
+  }
+  #toggle {
+    margin-top: 32px;
+    color: blue;
+    cursor: pointer;
+  }
+  table {
+    font-size: 22px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+  }
+  #laterTable {
+    display: none;
+  }
+  td, th {
+    border: 1px solid #ccc;
+    padding: 0 6px;
+  }
+   tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+</style>
+<body>
+  <div id="content">
+    <div id="title">陳家庭 NBA日程表</div>
+    <div id="date"></div>
+    <div id="noMatches">(今天沒有籃球比賽)</div>
+    <table id="todayTable">
+      <thead><tr><th>時間</th><th>電台</th><th>團隊</th></tr></thead>
+      <tbody id="matches"></tbody>
+    </table>
+    <div id="toggle">完整时间表</div>
+    <table id="laterTable">
+      <thead><tr><th>日期</th><th>團隊</th></tr></thead>
+      <tbody id="later"></tbody>
+    </table>
+  </div>
+</body>
+<script>
+  var a = 
+    [{"date":"星期四, 一月 14号","opp":"休斯敦火箭 vs 聖安東尼奧馬刺","time":"4:30 PM","channel":752,"sorter":10030,"ee":"January 14"},{"date":"星期四, 一月 14号","opp":"金州勇士 vs 丹佛掘金","time":"7:00 PM","channel":752,"sorter":10033,"ee":"January 14"},{"date":"星期五, 一月 15号","opp":"达拉斯獨行俠 vs 密尔沃基雄鹿","time":"4:30 PM","channel":735,"sorter":10031,"ee":"January 15"},{"date":"星期五, 一月 15号","opp":"新奥尔良鹈鹕 vs 洛杉矶湖人","time":"7:00 PM","channel":735,"sorter":10034,"ee":"January 15"},{"date":"星期五, 一月 15号","opp":"洛杉矶快船 vs 沙加緬度國王","time":"7:00 PM","channel":738,"sorter":10034,"ee":"January 15"},{"date":"星期日, 一月 17号","opp":"印第安纳步行者 vs 洛杉矶快船","time":"7:00 PM","channel":738,"sorter":10036,"ee":"January 17"},{"date":"星期一, 一月 18号","opp":"菲尼克斯太阳 vs 孟菲斯灰熊","time":"2:00 PM","channel":752,"sorter":10032,"ee":"January 18"},{"date":"星期一, 一月 18号","opp":"密尔沃基雄鹿 vs 布鲁克林篮网","time":"4:30 PM","channel":752,"sorter":10034,"ee":"January 18"},{"date":"星期一, 一月 18号","opp":"金州勇士 vs 洛杉矶湖人","time":"7:00 PM","channel":752,"sorter":10037,"ee":"January 18"},{"date":"星期三, 一月 20号","opp":"波士顿凯尔特人 vs 费城76人","time":"4:00 PM","channel":735,"sorter":10036,"ee":"January 20"},{"date":"星期三, 一月 20号","opp":"菲尼克斯太阳 vs 休斯敦火箭","time":"6:30 PM","channel":735,"sorter":10038,"ee":"January 20"},{"date":"星期三, 一月 20号","opp":"沙加緬度國王 vs 洛杉矶快船","time":"7:00 PM","channel":738,"sorter":10039,"ee":"January 20"}];
+
+  var all = a.map(function(m) { m.ee = new Date(m.ee + ' ' + new Date().getFullYear()); return m; });
+
+  var date = new Date().getDate();
+  var day = new Date().getDay();
+  var month = new Date().getMonth();
+
+  var getTodays = function(m) { return m.ee.getDate() === date && m.ee.getMonth() === month };
+  var today = all.filter(getTodays);
+  var notToday = all.filter(function(m) { return !getTodays(m); });
+
+  var days = [
+    '星期日',
+    '星期一',
+    '星期二',
+    '星期三',
+    '星期四',
+    '星期五',
+    '星期六',
+  ];
+
+  var months = [
+    '一月',
+    '二月',
+    '三月',
+    '四月',
+    '五月',
+    '六月',
+    '七月',
+    '八月',
+    '九月',
+    '十月',
+    '十一月',
+    '十二月',
+  ];
+
+  document.getElementById('date').innerHTML = days[day] + ', ' + months[month] + ' ' + date + '号';
+  document.getElementById('matches').innerHTML = today.map(function(m) {
+    return '<tr><td>' + m.time + '</td><td>' + m.channel + '</td><td>' + m.opp + '</td></tr>';
+  }).join('');
+  document.getElementById('later').innerHTML = notToday.map(function(m) {
+    return '<tr><td>' + m.date + '</td><td>' + m.opp + '</td></tr>';
+  }).join('');
+
+  if (!today.length) {
+    document.getElementById('todayTable').style.display = 'none';
+  } else {
+    document.getElementById('noMatches').style.display = 'none';
+  }
+
+  document.getElementById('toggle').addEventListener('click', function() {
+    var display = document.getElementById('laterTable').style.display;
+    document.getElementById('laterTable').style.display = display === 'table' ? 'none' : 'table';
+  });
+</script>
