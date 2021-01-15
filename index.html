@@ -3,36 +3,38 @@
   body {
     font-family: "Noto Sans SC";
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.7rem;
   }
   #content {
     text-align: center;
   }
   #title {
-    font-size: 32px;
+    font-size: 2.5rem;
   }
   #date {
-    font-size: 32px;
+    font-size: 2.5rem;
     margin-bottom: 24px;
   }
   #noMatches {
     font-style: italic;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 2rem;
   }
   #toggle {
     margin-top: 32px;
     color: blue;
     cursor: pointer;
+    display: inline-block;
+    padding: 8px;
   }
   table {
-    font-size: 22px;
+    font-size: 2.2rem;
     margin: 0 auto;
     border: 1px solid #ccc;
     border-collapse: collapse;
   }
   #laterTable {
-    display: none;
+    visibility: hidden;
   }
   td, th {
     border: 1px solid #ccc;
@@ -64,9 +66,10 @@
 
   var all = a.map(function(m) { m.ee = new Date(m.ee + ' ' + new Date().getFullYear()); return m; });
 
-  var date = new Date().getDate();
-  var day = new Date().getDay();
-  var month = new Date().getMonth();
+  var obj = new Date();
+  var date = obj.getDate();
+  var day = obj.getDay();
+  var month = obj.getMonth();
 
   var getTodays = function(m) { return m.ee.getDate() === date && m.ee.getMonth() === month };
   var today = all.filter(getTodays);
@@ -112,7 +115,9 @@
   }
 
   document.getElementById('toggle').addEventListener('click', function() {
-    var display = document.getElementById('laterTable').style.display;
-    document.getElementById('laterTable').style.display = display === 'table' ? 'none' : 'table';
+    var el = document.getElementById('laterTable');
+    var display = el.style.visibility;
+    var isVisible = display === 'visible';
+    el.style.visibility = isVisible ? 'hidden' : 'visible';
   });
 </script>
