@@ -8,9 +8,6 @@
     font-size: 1.7rem;
     overflow: hidden;
   }
-  img {
-    margin: 20px 0;
-  }
   #content {
     text-align: center;
   }
@@ -49,12 +46,45 @@
    tr:nth-child(even) {
     background-color: #f2f2f2;
   }
+  #birthday {
+    font-weight: bold;
+    font-size: 40px;
+    max-width: 700px;
+    margin: 0 auto 25px;
+  }
+  #bday-img {
+    border-radius: 50px;
+  }
+  #eday-img {
+    border-radius: 50px;
+    display: none;
+  }
+  #bday-wrap {
+    position: relative;
+    min-height: 300px;
+    text-align: center;
+  }
+  #bday-cover {
+    position: absolute;
+    width: 70px;
+    height: 20px;
+    background: rgb(154, 217, 249);
+    top: 270px;
+    left: 40%;
+  }
 </style>
 </head>
 <body>
   <div id="content">
     <div id="title">陳家庭 NBA日程表</div>
     <div id="date"></div>
+    <div id="birthday">
+      <div id="bday-wrap">
+        <div id="bday-cover"></div><img id="bday-img" src="bday.gif" width="300" />
+        <img id="eday-img" src="earth.gif" height="300" width="300" />
+      </div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;妈妈,住你生日快乐！</div>
+    </div> 
     <div id="noMatches">(今天沒有籃球比賽)</div>
     <table id="todayTable">
       <thead><tr><th>時間</th><th>電台</th><th>團隊</th></tr></thead>
@@ -129,6 +159,21 @@
     document.body.style.overflow = isVisible ? 'hidden' : 'visible';
     window.scrollTo(0, 0);
   });
+
+  setInterval(function() {
+    var bday = document.getElementById('bday-img');
+    var bdayCover = document.getElementById('bday-cover');
+    var eday = document.getElementById('eday-img');
+    if (bday.style.display === 'none') {
+      bdayCover.style.display = 'block';
+      bday.style.display = 'inline-block';
+      eday.style.display = 'none';
+    } else {
+      bdayCover.style.display = 'none';
+      bday.style.display = 'none';
+      eday.style.display = 'inline-block';
+    }
+  }, 5000);
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZHJNVSR58"></script>
