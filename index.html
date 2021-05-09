@@ -49,12 +49,21 @@
    tr:nth-child(even) {
     background-color: #f2f2f2;
   }
+  #mom, #card {
+    border-radius:10px;
+    display: none;
+  }
+  #card {
+    margin-bottom: 31px;
+  }
 </style>
 </head>
 <body>
   <div id="content">
     <div id="title">陳家庭 NBA日程表</div>
     <div id="date"></div>
+    <img src="mothers-day.jpg" width="300" id="mom" />
+    <img src="day.gif" width="300" id="card" />
     <div id="noMatches">(今天沒有籃球比賽)</div>
     <table id="todayTable">
       <thead><tr><th>時間</th><th>電台</th><th>團隊</th></tr></thead>
@@ -129,6 +138,27 @@
     document.body.style.overflow = isVisible ? 'hidden' : 'visible';
     window.scrollTo(0, 0);
   });
+
+  if (month === 4 && date === 9) {
+    const intervalFn = function() {
+      var mom = document.getElementById('mom');
+      var card = document.getElementById('card');
+      var timer;
+      if (mom.style.display === 'none') {
+        mom.style.display = 'inline-block';
+        card.style.display = 'none';
+        timer = 16000;
+      } else {
+        mom.style.display = 'none';
+        card.style.display = 'inline-block';
+        timer = 4000;
+      }
+
+      setTimeout(intervalFn, timer);
+    };
+
+    intervalFn();
+  }
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZHJNVSR58"></script>
