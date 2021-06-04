@@ -40,7 +40,7 @@
     border-collapse: collapse;
   }
   #laterTable {
-    visibility: hidden;
+    display: none;
   }
   td, th {
     border: 1px solid #ccc;
@@ -77,9 +77,9 @@
   </div>
 </body>
 <script>
-  var a = JSON.parse("[{\"date\":\"星期六, 五月 29号\",\"opp\":\"密尔沃基雄鹿 vs 迈阿密热火\",\"time\":\"10:30 AM\",\"channel\":752,\"sorter\":50039,\"ee\":\"May 29\"},{\"date\":\"星期六, 五月 29号\",\"opp\":\"丹佛掘金 vs 波特兰开拓者\",\"time\":\"1:00 PM\",\"channel\":752,\"sorter\":50042,\"ee\":\"May 29\"},{\"date\":\"星期六, 五月 29号\",\"opp\":\"费城76人 vs 华盛顿奇才\",\"time\":\"4:00 PM\",\"channel\":735,\"sorter\":50045,\"ee\":\"May 29\"},{\"date\":\"星期六, 五月 29号\",\"opp\":\"犹他爵士 vs 孟菲斯灰熊\",\"time\":\"6:30 PM\",\"channel\":735,\"sorter\":50047,\"ee\":\"May 29\"},{\"date\":\"星期日, 五月 30号\",\"opp\":\"纽约尼克斯 vs 亞特蘭大老鷹\",\"time\":\"10:00 AM\",\"channel\":707,\"sorter\":50040,\"ee\":\"May 30\"},{\"date\":\"星期日, 五月 30号\",\"opp\":\"菲尼克斯太阳 vs 洛杉矶湖人\",\"time\":\"12:30 PM\",\"channel\":707,\"sorter\":50054,\"ee\":\"May 30\"},{\"date\":\"星期日, 五月 30号\",\"opp\":\"布鲁克林篮网 vs 波士顿凯尔特人\",\"time\":\"4:00 PM\",\"channel\":752,\"sorter\":50046,\"ee\":\"May 30\"},{\"date\":\"星期日, 五月 30号\",\"opp\":\"洛杉矶快船 vs 达拉斯獨行俠\",\"time\":\"6:30 PM\",\"channel\":752,\"sorter\":50048,\"ee\":\"May 30\"},{\"date\":\"星期一, 五月 31号\",\"opp\":\"费城76人 vs 华盛顿奇才\",\"time\":\"4:00 PM\",\"channel\":752,\"sorter\":50047,\"ee\":\"May 31\"},{\"date\":\"星期一, 五月 31号\",\"opp\":\"犹他爵士 vs 孟菲斯灰熊\",\"time\":\"6:30 PM\",\"channel\":752,\"sorter\":50049,\"ee\":\"May 31\"}]");
+  var a = JSON.parse("[{\"date\":\"星期五, 六月 4号\",\"opp\":\"洛杉矶快船 vs 达拉斯獨行俠\",\"time\":\"6:00 PM\",\"channel\":735,\"sorter\":60022,\"ee\":\"6/4/2021\"},{\"date\":\"星期六, 六月 5号\",\"opp\":\"密尔沃基雄鹿 vs 布鲁克林篮网\",\"time\":\"4:30 PM\",\"channel\":752,\"sorter\":60021,\"ee\":\"6/5/2021\"},{\"date\":\"星期日, 六月 6号\",\"opp\":\"亞特蘭大老鷹 vs 费城76人\",\"time\":\"10:00 AM\",\"channel\":707,\"sorter\":60016,\"ee\":\"6/6/2021\"},{\"date\":\"星期日, 六月 6号\",\"opp\":\"达拉斯獨行俠 vs 洛杉矶快船\",\"time\":\"12:30 PM\",\"channel\":738,\"sorter\":60030,\"ee\":\"6/6/2021\"},{\"date\":\"星期一, 六月 7号\",\"opp\":\"密尔沃基雄鹿 vs 布鲁克林篮网\",\"time\":\"4:30 PM\",\"channel\":752,\"sorter\":60023,\"ee\":\"6/7/2021\"},{\"date\":\"星期一, 六月 7号\",\"opp\":\"丹佛掘金 vs 菲尼克斯太阳\",\"time\":\"7:00 PM\",\"channel\":752,\"sorter\":60026,\"ee\":\"6/7/2021\"}]");
 
-  var all = a.map(function(m) { m.ee = new Date(m.ee + ' ' + new Date().getFullYear()); return m; });
+  var all = a.map(function(m) { m.ee = new Date(m.ee); return m; });
 
   var obj = new Date();
   var date = obj.getDate();
@@ -131,10 +131,10 @@
 
   document.getElementById('toggle').addEventListener('click', function() {
     var el = document.getElementById('laterTable');
-    var display = el.style.visibility;
-    var isVisible = display === 'visible';
-    el.style.visibility = isVisible ? 'hidden' : 'visible';
-    document.body.style.overflow = isVisible ? 'hidden' : 'visible';
+    var display = el.style.display;
+    var isVisible = display === 'table';
+    el.style.display = isVisible ? 'none' : 'table';
+    // document.body.style.overflow = isVisible ? 'hidden' : 'visible';
     window.scrollTo(0, 0);
   });
 
