@@ -41,6 +41,7 @@
   }
   #laterTable {
     display: none;
+
   }
   td, th {
     border: 1px solid #ccc;
@@ -77,9 +78,9 @@
   </div>
 </body>
 <script>
-  var a = JSON.parse("[{\"date\":\"星期五, 六月 4号\",\"opp\":\"洛杉矶快船 vs 达拉斯獨行俠\",\"time\":\"6:00 PM\",\"channel\":735,\"sorter\":60022,\"ee\":\"6/4/2021\"},{\"date\":\"星期六, 六月 5号\",\"opp\":\"密尔沃基雄鹿 vs 布鲁克林篮网\",\"time\":\"4:30 PM\",\"channel\":752,\"sorter\":60021,\"ee\":\"6/5/2021\"},{\"date\":\"星期日, 六月 6号\",\"opp\":\"亞特蘭大老鷹 vs 费城76人\",\"time\":\"10:00 AM\",\"channel\":707,\"sorter\":60016,\"ee\":\"6/6/2021\"},{\"date\":\"星期日, 六月 6号\",\"opp\":\"达拉斯獨行俠 vs 洛杉矶快船\",\"time\":\"12:30 PM\",\"channel\":738,\"sorter\":60030,\"ee\":\"6/6/2021\"},{\"date\":\"星期一, 六月 7号\",\"opp\":\"密尔沃基雄鹿 vs 布鲁克林篮网\",\"time\":\"4:30 PM\",\"channel\":752,\"sorter\":60023,\"ee\":\"6/7/2021\"},{\"date\":\"星期一, 六月 7号\",\"opp\":\"丹佛掘金 vs 菲尼克斯太阳\",\"time\":\"7:00 PM\",\"channel\":752,\"sorter\":60026,\"ee\":\"6/7/2021\"}]");
+  var a = JSON.parse('[{"date":"星期日, 十月 3号","opp":"布鲁克林篮网 vs 洛杉矶湖人","time":"12:30 PM","channel":787,"sorter":627,"ee":"October 3"},{"date":"星期一, 十月 4号","opp":"丹佛掘金 vs 洛杉矶快船","time":"7:30 PM","channel":738,"sorter":623,"ee":"October 4"},{"date":"星期二, 十月 5号","opp":"密尔沃基雄鹿 vs 孟菲斯灰熊","time":"5:00 PM","channel":752,"sorter":622,"ee":"October 5"},{"date":"星期三, 十月 6号","opp":"洛杉矶湖人 vs 菲尼克斯太阳","time":"3:00 PM","channel":787,"sorter":621,"ee":"October 6"},{"date":"星期三, 十月 6号","opp":"沙加緬度國王 vs 洛杉矶快船","time":"7:30 PM","channel":738,"sorter":625,"ee":"October 6"},{"date":"星期五, 十月 8号","opp":"洛杉矶快船 vs 达拉斯獨行俠","time":"5:30 PM","channel":738,"sorter":625,"ee":"October 8"},{"date":"星期五, 十月 8号","opp":"洛杉矶湖人 vs 金州勇士","time":"7:00 PM","channel":787,"sorter":627,"ee":"October 8"},{"date":"星期日, 十月 10号","opp":"俄克拉何马城雷霆 vs 密尔沃基雄鹿","time":"4:30 PM","channel":735,"sorter":626,"ee":"October 10"},{"date":"星期日, 十月 10号","opp":"菲尼克斯太阳 vs 洛杉矶湖人","time":"7:00 PM","channel":735,"sorter":629,"ee":"October 10"},{"date":"星期一, 十月 11号","opp":"明尼苏达森林狼 vs 洛杉矶快船","time":"7:30 PM","channel":738,"sorter":630,"ee":"October 11"},{"date":"星期二, 十月 12号","opp":"金州勇士 vs 洛杉矶湖人","time":"7:30 PM","channel":752,"sorter":631,"ee":"October 12"},{"date":"星期三, 十月 13号","opp":"达拉斯獨行俠 vs 夏洛特黃蜂","time":"3:30 PM","channel":735,"sorter":628,"ee":"October 13"},{"date":"星期四, 十月 14号","opp":"洛杉矶湖人 vs 沙加緬度國王","time":"7:00 PM","channel":787,"sorter":633,"ee":"October 14"},{"date":"星期二, 十月 19号","opp":"布鲁克林篮网 vs 密尔沃基雄鹿","time":"4:30 PM","channel":752,"sorter":635,"ee":"October 19"},{"date":"星期二, 十月 19号","opp":"金州勇士 vs 洛杉矶湖人","time":"7:00 PM","channel":752,"sorter":638,"ee":"October 19"},{"date":"星期三, 十月 20号","opp":"波士顿凯尔特人 vs 纽约尼克斯","time":"4:30 PM","channel":735,"sorter":636,"ee":"October 20"},{"date":"星期三, 十月 20号","opp":"丹佛掘金 vs 菲尼克斯太阳","time":"7:00 PM","channel":735,"sorter":639,"ee":"October 20"},{"date":"星期四, 十月 21号","opp":"达拉斯獨行俠 vs 亞特蘭大老鷹","time":"4:30 PM","channel":752,"sorter":637,"ee":"October 21"},{"date":"星期四, 十月 21号","opp":"洛杉矶快船 vs 金州勇士","time":"7:00 PM","channel":752,"sorter":640,"ee":"October 21"},{"date":"星期五, 十月 22号","opp":"布鲁克林篮网 vs 费城76人","time":"4:30 PM","channel":735,"sorter":638,"ee":"October 22"},{"date":"星期五, 十月 22号","opp":"菲尼克斯太阳 vs 洛杉矶湖人","time":"7:00 PM","channel":735,"sorter":641,"ee":"October 22"},{"date":"星期六, 十月 23号","opp":"孟菲斯灰熊 vs 洛杉矶快船","time":"7:30 PM","channel":738,"sorter":642,"ee":"October 23"},{"date":"星期日, 十月 24号","opp":"孟菲斯灰熊 vs 洛杉矶湖人","time":"6:30 PM","channel":787,"sorter":642,"ee":"October 24"},{"date":"星期一, 十月 25号","opp":"波特兰开拓者 vs 洛杉矶快船","time":"7:30 PM","channel":738,"sorter":644,"ee":"October 25"},{"date":"星期二, 十月 26号","opp":"费城76人 vs 纽约尼克斯","time":"4:30 PM","channel":752,"sorter":642,"ee":"October 26"},{"date":"星期二, 十月 26号","opp":"洛杉矶湖人 vs 聖安東尼奧馬刺","time":"5:30 PM","channel":787,"sorter":643,"ee":"October 26"},{"date":"星期二, 十月 26号","opp":"丹佛掘金 vs 犹他爵士","time":"7:00 PM","channel":752,"sorter":645,"ee":"October 26"},{"date":"星期三, 十月 27号","opp":"亞特蘭大老鷹 vs 新奥尔良鹈鹕","time":"4:30 PM","channel":735,"sorter":643,"ee":"October 27"},{"date":"星期三, 十月 27号","opp":"洛杉矶湖人 vs 俄克拉何马城雷霆","time":"5:00 PM","channel":787,"sorter":644,"ee":"October 27"},{"date":"星期三, 十月 27号","opp":"孟菲斯灰熊 vs 波特兰开拓者","time":"7:00 PM","channel":735,"sorter":646,"ee":"October 27"},{"date":"星期三, 十月 27号","opp":"克里夫蘭騎士 vs 洛杉矶快船","time":"7:30 PM","channel":738,"sorter":646,"ee":"October 27"},{"date":"星期五, 十月 29号","opp":"夏洛特黃蜂 vs 迈阿密热火","time":"4:30 PM","channel":735,"sorter":645,"ee":"October 29"},{"date":"星期五, 十月 29号","opp":"达拉斯獨行俠 vs 丹佛掘金","time":"7:00 PM","channel":735,"sorter":648,"ee":"October 29"},{"date":"星期五, 十月 29号","opp":"洛杉矶快船 vs 波特兰开拓者","time":"7:00 PM","channel":738,"sorter":648,"ee":"October 29"},{"date":"星期五, 十月 29号","opp":"克里夫蘭騎士 vs 洛杉矶湖人","time":"7:30 PM","channel":787,"sorter":648,"ee":"October 29"},{"date":"星期日, 十月 31号","opp":"休斯敦火箭 vs 洛杉矶湖人","time":"7:30 PM","channel":787,"sorter":650,"ee":"October 31"},{"date":"星期一, 十一月 1号","opp":"俄克拉何马城雷霆 vs 洛杉矶快船","time":"7:30 PM","channel":738,"sorter":720,"ee":"November 1"},{"date":"星期二, 十一月 2号","opp":"迈阿密热火 vs 达拉斯獨行俠","time":"4:30 PM","channel":752,"sorter":718,"ee":"November 2"},{"date":"星期二, 十一月 2号","opp":"新奥尔良鹈鹕 vs 菲尼克斯太阳","time":"7:00 PM","channel":752,"sorter":721,"ee":"November 2"},{"date":"星期二, 十一月 2号","opp":"休斯敦火箭 vs 洛杉矶湖人","time":"7:30 PM","channel":787,"sorter":721,"ee":"November 2"},{"date":"星期三, 十一月 3号","opp":"亞特蘭大老鷹 vs 布鲁克林篮网","time":"4:30 PM","channel":735,"sorter":719,"ee":"November 3"},{"date":"星期三, 十一月 3号","opp":"洛杉矶快船 vs 明尼苏达森林狼","time":"5:00 PM","channel":738,"sorter":720,"ee":"November 3"},{"date":"星期三, 十一月 3号","opp":"夏洛特黃蜂 vs 金州勇士","time":"7:00 PM","channel":735,"sorter":722,"ee":"November 3"},{"date":"星期四, 十一月 4号","opp":"俄克拉何马城雷霆 vs 洛杉矶湖人","time":"7:30 PM","channel":787,"sorter":723,"ee":"November 4"},{"date":"星期五, 十一月 5号","opp":"纽约尼克斯 vs 密尔沃基雄鹿","time":"4:30 PM","channel":735,"sorter":721,"ee":"November 5"},{"date":"星期五, 十一月 5号","opp":"洛杉矶快船 vs 明尼苏达森林狼","time":"5:00 PM","channel":738,"sorter":722,"ee":"November 5"},{"date":"星期五, 十一月 5号","opp":"新奥尔良鹈鹕 vs 金州勇士","time":"7:00 PM","channel":735,"sorter":724,"ee":"November 5"},{"date":"星期六, 十一月 6号","opp":"洛杉矶湖人 vs 波特兰开拓者","time":"7:30 PM","channel":787,"sorter":725,"ee":"November 6"}]');
 
-  var all = a.map(function(m) { m.ee = new Date(m.ee); return m; });
+  var all = a.map(function(m) { m.ee = new Date(m.ee + ' ,' + new Date().getFullYear()); return m; });
 
   var obj = new Date();
   var date = obj.getDate();
@@ -89,6 +90,8 @@
   var getTodays = function(m) { return m.ee.getDate() === date && m.ee.getMonth() === month };
   var today = all.filter(getTodays);
   var notToday = all.filter(function(m) { return !getTodays(m) && obj < m.ee; });
+
+  console.log(all, today, notToday);
 
   var days = [
     '星期日',
@@ -134,7 +137,7 @@
     var display = el.style.display;
     var isVisible = display === 'table';
     el.style.display = isVisible ? 'none' : 'table';
-    // document.body.style.overflow = isVisible ? 'hidden' : 'visible';
+    document.body.style.overflow = isVisible ? 'hidden' : 'visible';
     window.scrollTo(0, 0);
   });
 
