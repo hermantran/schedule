@@ -274,7 +274,13 @@
     window.scrollTo(0, 0);
   });
 
-  document.getElementById('worldcup').innerHTML = w.map(function(m) {
+  document.getElementById('worldcup').innerHTML = w.filter(function(m) {
+    var date = parseInt(m.date.replace(/\D/g, ''));
+    var todayCounter = (new Date().getMonth() * 100) + new Date().getDate();
+    var counter = (m.date.includes('十一月') ? 1000 : 1100) + date;
+
+    return counter >= todayCounter;
+  }).map(function(m) {
     return '<tr><td>' + m.date + '</td><td>' + m.time + '</td><td>' + m.channel + '</td><td>' + m.opp + '</td></tr>';
   }).join('');
 
