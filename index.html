@@ -13,7 +13,7 @@
   #content {
     text-align: center;
   }
-  #title {
+  .title {
     font-size: 2.5rem;
   }
   #date {
@@ -63,7 +63,7 @@
 </head>
 <body>
   <div id="content">
-    <div id="title">陳家庭 NBA日程表</div>
+    <div class="title">陳家庭 NBA日程表</div>
     <div id="date"></div>
     <div id="noMatches">(今天沒有籃球比賽)</div>
     <table id="todayTable">
@@ -74,6 +74,18 @@
     <table id="laterTable">
     <thead><tr><th>日期</th><th>時間</th><th>電台</th><th>團隊</th></tr></thead>
       <tbody id="later"></tbody>
+    </table>
+    <div class="title">美式摔跤</div>
+    <table>
+      <thead><tr><th>日期</th><th>時間</th><th>電台</th><th>节目</th></tr></thead>
+      <tbody>
+	<tr><td>星期一</td><td>8-10 PM</td><td>760</td><td>WWE Monday Night RAW</td></tr>
+	<tr><td>星期二</td><td>8-10 PM</td><td>705</td><td>WWE NXT</td></tr>
+	<tr><td>星期三</td><td>8-10 PM</td><td>733</td><td> AEW Dynamite</td></tr>  
+	<tr><td>星期五</td><td>8-10 PM</td><td>760</td><td> WWE Friday Night Smackdown</td></tr>  
+	<tr><td>星期五</td><td>10-11 PM</td><td>752</td><td> AEW Rampage</td></tr>  
+	<tr><td>星期六</td><td>8-10 PM</td><td>752</td><td> AEW Collision </td></tr> 
+      </tbody>
     </table>
   </div>
 </body>
