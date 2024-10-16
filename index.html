@@ -45,9 +45,19 @@
     display: block;
     padding: 8px;
   }
+  #toggle-wres {
+    margin-top: 8px;
+    color: blue;
+    cursor: pointer;
+    display: block;
+    padding: 8px;
+  }
+
   #laterTable {
     display: none;
-
+  }
+  #wresTable {
+    display: none;
   }
   td, th {
     border: 1px solid #ccc;
@@ -86,8 +96,8 @@
     <thead><tr><th>日期</th><th>時間</th><th>電台</th><th>團隊</th></tr></thead>
       <tbody id="later"></tbody>
     </table>
-    <div class="title">美式摔跤</div>
-    <table>
+    <div id="toggle-wres">美式摔跤</div>
+    <table id="wresTable">
       <thead><tr><th>日期</th><th>時間</th><th>電台</th><th>节目</th></tr></thead>
       <tbody>
 	<tr><td>星期一</td><td>8-10 PM</td><td>760</td><td>WWE Monday Night RAW</td></tr>
@@ -167,6 +177,15 @@
 
   document.getElementById('toggle').addEventListener('click', function() {
     var el = document.getElementById('laterTable');
+    var display = el.style.display;
+    var isVisible = display === 'table';
+    el.style.display = isVisible ? 'none' : 'table';
+    document.body.style.overflow = isVisible ? 'hidden' : 'visible';
+    window.scrollTo(0, 0);
+  });
+
+  document.getElementById('toggle-wres').addEventListener('click', function() {
+    var el = document.getElementById('wresTable');
     var display = el.style.display;
     var isVisible = display === 'table';
     el.style.display = isVisible ? 'none' : 'table';
